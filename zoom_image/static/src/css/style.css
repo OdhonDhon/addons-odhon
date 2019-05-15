@@ -1,0 +1,8 @@
+.grow { 
+        transition: all .2s ease-out; 
+    }
+.grow:hover { 
+              transform: scale(2.1);
+              transform-origin: left;
+              background: black;
+          }
