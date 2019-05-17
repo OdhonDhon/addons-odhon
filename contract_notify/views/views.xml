@@ -1,0 +1,52 @@
+<odoo>
+  <data>
+
+    <record id="tree_hr_employee_contract" model="ir.ui.view">
+        <field name="name">hr.employee.contract.tree</field>
+        <field name="model">hr.employee.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Employees Contract" style="text-align: left">
+                <field name="employee_id"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="reads"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="form_hr_employee_contract" model="ir.ui.view">
+        <field name="name">hr.employee.contract.form</field>
+        <field name="model">hr.employee.contract</field>
+        <field name="arch" type="xml">
+            <form string="Employees Contract">
+                <header>
+                    <button name="read_this" type="object" string="Sudah Dibaca" states="new" icon="fa-check-square-o"/>
+                    <field name="state" widget="statusbar" statusbar_visible="new,done" statusbar_colors='{"draft":"red","done":"blue"}'/>
+                </header>
+                <sheet>
+                    <group col="4" colspan="4">
+                        <field name="employee_id"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                        <field name="contract_id"/>
+                        <field name="reads"/>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="action_hr_employee_contract_form">
+        <field name="name">End Contracts</field>
+        <field name="res_model">hr.employee.contract</field>
+    </record>
+
+    <menuitem id="hr_employee_contract" parent="hr.menu_hr_root" name="End Contracts" sequence="92"
+      groups="hr.group_hr_manager" action="action_hr_employee_contract_form"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="contract_cron" model="ir.cron">
+            <field name="name">Show Contract Notification</field>
+            <field name="model">hr.employee</field>
+            <field name="function">sync_contract</field>
+            <field name="interval_number">10</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+        </record>
+    </data>
+</odoo>
